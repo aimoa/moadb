@@ -1,0 +1,16 @@
+current directory: /home/aimoa/work/moadb/moa/vendor/bundle/ruby/2.3.0/gems/binding_of_caller-0.7.2/ext/binding_of_caller
+/usr/bin/ruby -r ./siteconf20160402-20816-15lhdxn.rb extconf.rb
+
+current directory: /home/aimoa/work/moadb/moa/vendor/bundle/ruby/2.3.0/gems/binding_of_caller-0.7.2/ext/binding_of_caller
+make "DESTDIR=" clean
+make: *** No rule to make target 'clean'.  Stop.
+
+current directory: /home/aimoa/work/moadb/moa/vendor/bundle/ruby/2.3.0/gems/binding_of_caller-0.7.2/ext/binding_of_caller
+make "DESTDIR="
+echo "Nada."
+Nada.
+
+current directory: /home/aimoa/work/moadb/moa/vendor/bundle/ruby/2.3.0/gems/binding_of_caller-0.7.2/ext/binding_of_caller
+make "DESTDIR=" install
+echo "Nada."
+Nada.

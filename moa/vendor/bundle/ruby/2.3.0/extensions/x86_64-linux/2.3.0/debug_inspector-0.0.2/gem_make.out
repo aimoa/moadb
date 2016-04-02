@@ -1,0 +1,15 @@
+current directory: /home/aimoa/work/moadb/moa/vendor/bundle/ruby/2.3.0/gems/debug_inspector-0.0.2/ext/debug_inspector
+/usr/bin/ruby -r ./siteconf20160402-20816-me1wzu.rb extconf.rb
+creating Makefile
+
+current directory: /home/aimoa/work/moadb/moa/vendor/bundle/ruby/2.3.0/gems/debug_inspector-0.0.2/ext/debug_inspector
+make "DESTDIR=" clean
+
+current directory: /home/aimoa/work/moadb/moa/vendor/bundle/ruby/2.3.0/gems/debug_inspector-0.0.2/ext/debug_inspector
+make "DESTDIR="
+compiling debug_inspector.c
+linking shared-object debug_inspector.so
+
+current directory: /home/aimoa/work/moadb/moa/vendor/bundle/ruby/2.3.0/gems/debug_inspector-0.0.2/ext/debug_inspector
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 debug_inspector.so ./.gem.20160402-20816-1x0h58g

@@ -1,0 +1,19 @@
+current directory: /home/aimoa/work/moadb/moa/vendor/bundle/ruby/2.3.0/gems/byebug-8.2.2/ext/byebug
+/usr/bin/ruby -r ./siteconf20160402-20816-1n0qadl.rb extconf.rb
+creating Makefile
+
+current directory: /home/aimoa/work/moadb/moa/vendor/bundle/ruby/2.3.0/gems/byebug-8.2.2/ext/byebug
+make "DESTDIR=" clean
+
+current directory: /home/aimoa/work/moadb/moa/vendor/bundle/ruby/2.3.0/gems/byebug-8.2.2/ext/byebug
+make "DESTDIR="
+compiling byebug.c
+compiling threads.c
+compiling breakpoint.c
+compiling context.c
+compiling locker.c
+linking shared-object byebug/byebug.so
+
+current directory: /home/aimoa/work/moadb/moa/vendor/bundle/ruby/2.3.0/gems/byebug-8.2.2/ext/byebug
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 byebug.so ./.gem.20160402-20816-1t4oc88/byebug
