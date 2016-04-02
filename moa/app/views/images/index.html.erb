@@ -1,0 +1,8 @@
+<h1>All Moas</h1>
+
+<% @images.each do |image| %>
+  <%= image_tag image.url, style: 'height:300px;width:auto' %>
+<% end %>
+
+<br>
+<%= link_to 'Where are the Moas?', new_image_path %>
