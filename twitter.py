@@ -7,6 +7,7 @@ from tweepy import OAuthHandler
 from tweepy import Stream
 
 from config import *
+from ghash import ghash
 
 class MoaListener(StreamListener):
     def on_data(self, data):
@@ -16,7 +17,8 @@ class MoaListener(StreamListener):
             if "media" in entities:
                 for medium in entities["media"]:
                     url = medium["media_url_https"]+":large"
-                    print url
+                    code = ghash(url)
+                    print url, code
         return True
 
     def on_error(self, status):
