@@ -18,7 +18,8 @@ class MoaListener(StreamListener):
                 for medium in entities["media"]:
                     url = medium["media_url_https"]+":large"
                     code = ghash(url)
-                    print url, code
+                    r = requests.post("http://img.berkeley-pbl.com/images", \
+                            data={'@url': url, '@ghash': code})
         return True
 
     def on_error(self, status):
