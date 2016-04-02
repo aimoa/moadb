@@ -1,7 +1,7 @@
 <h1>All Moas</h1>
 
 <% @images.each do |image| %>
-  <%= image_tag image.url, style: 'height:300px;width:auto' %>
+  <%= link_to (image_tag image.url, title: image.ghash, style: 'height:300px;width:auto'), image %>
 <% end %>
 
 <br>

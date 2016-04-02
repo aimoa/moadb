@@ -1,4 +1,8 @@
-<%= image_tag @image.url %>
+<p>
+  <strong>Ghash Code:</strong>
+  <%= @image.ghash %>
+</p>
+<%= image_tag @image.url, title: @image.ghash %>
 
 <br>
 <%= link_to 'See more', images_path %>

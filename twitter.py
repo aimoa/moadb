@@ -20,6 +20,7 @@ class MoaListener(StreamListener):
                     code = ghash(url)
                     r = requests.post("http://img.berkeley-pbl.com/images", \
                             data={'@url': url, '@ghash': code})
+                    print r.status_code, r.reason
         return True
 
     def on_error(self, status):
