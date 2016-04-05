@@ -17,10 +17,10 @@ class MoaListener(StreamListener):
             if "media" in entities:
                 for medium in entities["media"]:
                     url = medium["media_url_https"]+":large"
+                    tweet = medium["url"]
                     code = ghash(url)
                     r = requests.post("http://img.berkeley-pbl.com/images", \
                             data={'@url': url, '@ghash': code})
-                    print r.status_code, r.reason
         return True
 
     def on_error(self, status):
@@ -37,4 +37,4 @@ if __name__ == '__main__':
     auth.set_access_token(access_token, access_token_secret)
 
     stream = Stream(auth, listener)
-    stream.filter(track=['kikuchi moa','moa metal',u'菊地最愛'])
+    stream.filter(track=['kikuchi moa','moa metal','moametal',u'菊地最愛'])
