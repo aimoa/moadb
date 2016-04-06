@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160405051954) do
+ActiveRecord::Schema.define(version: 20160402154621) do
 
   create_table "images", force: :cascade do |t|
     t.string   "url"
-    t.integer  "ghash"
+    t.string   "tweet"
+    t.string   "ghash"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "tweet"
   end
 
 end

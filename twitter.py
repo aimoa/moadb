@@ -19,8 +19,8 @@ class MoaListener(StreamListener):
                     url = medium["media_url_https"]+":large"
                     tweet = medium["url"]
                     code = ghash(url)
-                    r = requests.post("http://img.berkeley-pbl.com/images", \
-                            data={'@url': url, '@ghash': code})
+                    r = requests.post("http://localhost:3000/images", \
+                            data={'url': url,'tweet': tweet,'ghash': code})
         return True
 
     def on_error(self, status):

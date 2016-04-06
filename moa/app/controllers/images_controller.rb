@@ -28,7 +28,7 @@ class ImagesController < ApplicationController
 
   private
     def image_params
-      params.require(:image).permit(:url, :tweet, :ghash)
+      params.permit(:url, :tweet, :ghash)
     end
 
 end

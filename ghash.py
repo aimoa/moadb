@@ -23,4 +23,4 @@ def ghash(url):
     code = 0
     for bit in (img > 0):
         code = (code << 1) | bit
-    return code
+    return hex(code)
