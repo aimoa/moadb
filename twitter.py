@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 import requests
 import json
 from tweepy.streaming import StreamListener
@@ -16,11 +14,14 @@ class MoaListener(StreamListener):
             entities = data["extended_entities"]
             if "media" in entities:
                 for medium in entities["media"]:
-                    url = medium["media_url_https"]+":large"
+                    print medium["media_url"]
+                    if medium["type"]=="video":
+                        continue
+                    url = medium["media_url_https"]
                     tweet = medium["url"]
                     code = ghash(url)
-                    r = requests.post("http://localhost:3000/images", \
-                            data={'url': url,'tweet': tweet,'ghash': code})
+                    r = requests.post(server, \
+                            data={'url':url, 'tweet':tweet, 'ghash':code})
         return True
 
     def on_error(self, status):
@@ -37,4 +38,4 @@ if __name__ == '__main__':
     auth.set_access_token(access_token, access_token_secret)
 
     stream = Stream(auth, listener)
-    stream.filter(track=['kikuchi moa','moa metal','moametal',u'菊地最愛'])
+    stream.filter(track=keywords)

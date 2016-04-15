@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'images/webhook'
+
   get 'home/index'
 
   root 'home#index'

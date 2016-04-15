@@ -24,3 +24,6 @@ def ghash(url):
     for bit in (img > 0):
         code = (code << 1) | bit
     return hex(code)
+
+if __name__ == "__main__":
+    print "GHASH"

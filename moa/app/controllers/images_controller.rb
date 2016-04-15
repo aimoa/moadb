@@ -1,4 +1,5 @@
 class ImagesController < ApplicationController
+
   def index
     @images = Image.all
   end
@@ -14,7 +15,7 @@ class ImagesController < ApplicationController
   end
 
   def create
-    @image = Image.new(image_params)
+    @image = Image.new(params.require(:image).permit(:url, :tweet, :ghash))
 
     @image.save
     redirect_to @image
@@ -25,10 +26,5 @@ class ImagesController < ApplicationController
 
   def destroy
   end
-
-  private
-    def image_params
-      params.permit(:url, :tweet, :ghash)
-    end
 
 end

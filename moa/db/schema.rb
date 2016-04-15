@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160402154621) do
+ActiveRecord::Schema.define(version: 20160415074114) do
 
   create_table "images", force: :cascade do |t|
     t.string   "url"
@@ -20,5 +20,7 @@ ActiveRecord::Schema.define(version: 20160402154621) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "images", ["ghash"], name: "index_images_on_ghash", unique: true
 
 end
