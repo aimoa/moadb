@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
-  get 'images/webhook'
-
   get 'home/index'
 
   root 'home#index'
 
   resources :images
+
+  get '/privacy' => 'pages#privacy'
+
+  post '/webhook' => 'pages#webhook'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
