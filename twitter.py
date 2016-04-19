@@ -14,14 +14,19 @@ class MoaListener(StreamListener):
             entities = data["extended_entities"]
             if "media" in entities:
                 for medium in entities["media"]:
-                    print medium["media_url"]
                     if medium["type"]=="video":
                         continue
+                    print medium["media_url"]
                     url = medium["media_url_https"]
                     tweet = medium["url"]
                     code = ghash(url)
-                    r = requests.post(server, \
-                            data={'url':url, 'tweet':tweet, 'ghash':code})
+                    data = json.dumps({'image': { \
+                            'url': url, \
+                            'tweet': tweet, \
+                            'ghash': code \
+                            }})
+                    headers = {'content-type': 'application/json'}
+                    r = requests.post(server, data=data, headers=headers)
         return True
 
     def on_error(self, status):
