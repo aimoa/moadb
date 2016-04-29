@@ -1,7 +1,7 @@
 class ImagesController < ApplicationController
 
   def index
-    @images = Image.order(:ghash)
+    @images = Image.where(:spam => false).paginate(:page => params[:page], :per_page => 28).order(:ghash)
   end
 
   def show
@@ -16,14 +16,19 @@ class ImagesController < ApplicationController
 
   def create
     @image = Image.create(image_params)
+
+    redirect_to images_path
   end
 
   def update
+    @image = Image.find(params[:id])
+
+    redirect_to @image
   end
 
   def destroy
     @image = Image.find(params[:id])
-    @image.destroy
+    @image.update(:spam => true)
 
     redirect_to images_path
   end

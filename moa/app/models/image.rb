@@ -1,4 +1,4 @@
-#require 'elasticsearch/model'
+require 'elasticsearch/model'
 
 class Image < ActiveRecord::Base
 #  include Elasticsearch::Model
@@ -12,11 +12,11 @@ class Image < ActiveRecord::Base
                     uniqueness: true
 
   def next
-    self.class.where('ghash > ?', ghash).first
+    self.class.where('spam = ? AND ghash > ?', false, ghash).first
   end
   
   def previous
-    self.class.where('ghash < ?', ghash).last
+    self.class.where('spam = ? AND ghash < ?', false, ghash).last
   end
 end
 

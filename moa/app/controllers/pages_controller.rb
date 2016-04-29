@@ -12,10 +12,16 @@ class PagesController < ApplicationController
       if message = event['message']
         if message['text']
           text = message['text'].split
-          if text[0] == 'delete' and text[1]
-            sendGenericMessage(sender, text[1])
+          if text.length < 2
+            sendPersonalMessage(sender, 'I want to make you smile! Try sending me a thumbs up!')
+            render text: '' and return
+          end
+          case text[0].downcase
+          when 'delete'
+            sendDeleteMessage(sender, text[1])
           else
-            sendPersonalMessage(sender, 'sorry . . . my English is very limited!')
+            sendPersonalMessage(sender, 'sorry . . . my English is very limited! Please try using my website while I study harder.')
+            sendTextMessage(sender, root_url)
           end
         elsif message['sticker_id']
           image = Image.order(:created_at).last
@@ -30,12 +36,12 @@ class PagesController < ApplicationController
         payload = event['postback']['payload'].split
         if payload[0..-2].join(' ') == payload_prefix('delete')
           @image = Image.find(payload[-1])
-          @image.destroy
+          @image.update(:spam => true)
           sendPersonalMessage(sender, "I just deleted #{payload[-1]} for you~")
         end
       end
     end
-    render text: 'Hello World.'
+    render text: ''
   end
 
   private
@@ -76,7 +82,7 @@ class PagesController < ApplicationController
       sendMessage(recipient, messageData)
     end
 
-    def sendGenericMessage(recipient, ghash)
+    def sendDeleteMessage(recipient, ghash)
       begin
         @image = Image.find(ghash)
       rescue ActiveRecord::RecordNotFound
@@ -94,6 +100,11 @@ class PagesController < ApplicationController
                 :image_url => @image.url,
                 :subtitle => 'Are you sure you want to delete this image? This action cannot be undone.',
                 :buttons => [
+                  {
+                    :type => 'web_url',
+                    :url => @image.url,
+                    :title => 'View'
+                  },
                   {
                     :type => 'postback',
                     :title => 'Delete',

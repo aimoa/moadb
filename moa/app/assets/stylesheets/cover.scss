@@ -13,8 +13,9 @@ a:hover {
 .btn-primary,
 .btn-primary:hover,
 .btn-primary:focus {
-  animation: blink 0.4s ease-in-out infinite alternate;
-  border: .05rem solid #fff;
+  border: none;
+  font-size: 150%;
+  animation: swag 4s both;
 }
 
 
@@ -106,15 +107,13 @@ body {
   }
 }
 
-@keyframes blink {
+@keyframes swag {
   from {
-    background-color: white;
-    color: pink;
-    font-size: 100%;
+    background-color: #204;
+    color: #204;
   }
   to {
-    background-color: pink;
-    color: white;
-    font-size: 150%;
+    background-color: #426;
+    color: #fff;
   }
 }
