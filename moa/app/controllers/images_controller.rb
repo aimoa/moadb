@@ -15,10 +15,7 @@ class ImagesController < ApplicationController
   end
 
   def create
-    @image = Image.new(params.require(:image).permit(:url, :tweet, :ghash))
-
-    @image.save
-    redirect_to @image
+    @image = Image.create(image_params)
   end
 
   def update
@@ -26,5 +23,10 @@ class ImagesController < ApplicationController
 
   def destroy
   end
+
+  private
+    def image_params
+      params.require(:image).permit(:url, :tweet, :ghash)
+    end
 
 end

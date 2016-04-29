@@ -1,7 +1,9 @@
 <h1>New Image</h1>
 
-<%= link_to 'GET ME OUT OF HERE!!!', images_path %>
+<%= link_to 'Leave', images_path %>
 
+<%
+=begin %>
 <%= form_for :image, url: images_path do |f| %>
   <p>
     <%= f.label :url %><br>
@@ -22,3 +24,5 @@
     <%= f.submit %>
   </p>
 <% end %>
+<%
+=end %>
