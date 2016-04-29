@@ -1,8 +1,11 @@
-<%= link_to 'Back', images_path %>
-
-<p>
-  <strong>Ghash Code:</strong>
-  <%= @image.ghash %>
-</p>
-
-<%= link_to (image_tag @image.url, title: @image.ghash), @image.tweet %>
+<%= link_to 'Full Album', images_path %>
+<br>
+<%= link_to 'Source', @image.tweet %>
+<br>
+<% if @image.previous %>
+<%= link_to (image_tag @image.previous.url+':thumb'), @image.previous %>
+<% end %>
+<%= link_to (image_tag @image.url), @image.url+':large' %>
+<% if @image.next %>
+<%= link_to (image_tag @image.next.url+':thumb'), @image.next %>
+<% end %>

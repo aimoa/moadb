@@ -1,2 +1,37 @@
-<h1>What's the point of this page?</h1>
-<%= link_to 'My Images', controller: 'images' %>
+<head>
+
+  <meta charset="UTF-8">
+
+  <style type="text/css">
+
+    @keyframes blink {
+      from {background-color: white; color: pink; font-size: 400%;}
+      to {background-color: pink; color: white; font-size: 400%;}
+    }
+
+    body {
+      background-color: #220044;
+      text-align: center;
+    }
+
+    a:link, a:visited {
+      text-decoration: none;
+      animation: blink 4s ease-in-out infinite alternate;
+    }
+
+    a:hover, a:active {
+      text-decoration: underline;
+      animation: blink 0.4s ease-in-out infinite alternate;
+    }
+
+  </style>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+  <%= link_to '最も愛を大切に', controller: 'images' %>
+
+</body>

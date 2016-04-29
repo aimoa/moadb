@@ -5,4 +5,12 @@ class Image < ActiveRecord::Base
   validates :tweet, presence: true
   validates :ghash, presence: true,
                     uniqueness: true
+
+  def next
+    self.class.where('ghash > ?', ghash).first
+  end
+  
+  def previous
+    self.class.where('ghash < ?', ghash).last
+  end
 end
