@@ -1,4 +1,9 @@
+#require 'elasticsearch/model'
+
 class Image < ActiveRecord::Base
+#  include Elasticsearch::Model
+#  include Elasticsearch::Model::Callbacks
+
   self.primary_key = "ghash"
 
   validates :url, presence: true
@@ -14,3 +19,5 @@ class Image < ActiveRecord::Base
     self.class.where('ghash < ?', ghash).last
   end
 end
+
+#Image.import

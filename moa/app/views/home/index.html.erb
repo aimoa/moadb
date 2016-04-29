@@ -1,37 +1,28 @@
-<head>
+<% content_for :head do %>
+  <link href="cover.css" rel="stylesheet">
+<% end %>
 
-  <meta charset="UTF-8">
+<div class="site-wrapper">
 
-  <style type="text/css">
+  <div class="site-wrapper-inner">
 
-    @keyframes blink {
-      from {background-color: white; color: pink; font-size: 400%;}
-      to {background-color: pink; color: white; font-size: 400%;}
-    }
+    <div class="cover-container">
 
-    body {
-      background-color: #220044;
-      text-align: center;
-    }
+      <div class="inner cover">
+        <h1 class="cover-heading">ＦＯＲ　ＹＯＵ</h1>
+        <p class="lead">
+          <%= link_to '最も愛を大切に', images_path, class: 'btn btn-lg btn-primary' %>
+        </p>
+      </div>
 
-    a:link, a:visited {
-      text-decoration: none;
-      animation: blink 4s ease-in-out infinite alternate;
-    }
+      <div class="mastfoot">
+        <div class="inner">
+          <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+        </div>
+      </div>
 
-    a:hover, a:active {
-      text-decoration: underline;
-      animation: blink 0.4s ease-in-out infinite alternate;
-    }
+    </div>
 
-  </style>
+  </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-
-</head>
-
-<body>
-
-  <%= link_to '最も愛を大切に', controller: 'images' %>
-
-</body>
+</div>
