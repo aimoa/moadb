@@ -2,7 +2,7 @@ require 'rest-client'
 
 class PagesController < ApplicationController
   def privacy
-    render text: 'I will use your Facebook ID to send messages to you.'
+    render text: 'I will sometimes use your Facebook name to send messages to you.'
   end
 
   def webhook

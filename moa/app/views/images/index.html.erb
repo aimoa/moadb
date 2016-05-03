@@ -3,13 +3,14 @@
     <div class="about">
       <h4>About</h4>
       <p class="text-muted">This page is the main interface for browsing Moa
-DB, but I am also working on a Facebook Messenger Platform interface.</p>
+DB, but I am also working on a Facebook Messenger Platform interface. Message
+me through the 'Contact' links to report bugs or request access to Moa Bot.</p>
     </div>
     <div class="social">
       <h4>Contact</h4>
       <ul class="list-unstyled">
-        <li><a href="https://www.twitter.com/wukong_sun/">Follow on Twitter</a></li>
-        <li><a href="https://www.facebook.com/moabot/">Like on Facebook</a></li>
+        <li><a href="https://www.twitter.com/wukong_sun/">Twitter</a></li>
+        <li><a href="https://www.facebook.com/moabot/">Facebook</a></li>
       </ul>
     </div>
   </div>
@@ -28,7 +29,7 @@ data-target="#navbar-header">
   <div class="container">
     <h1 class="jumbotron-heading">Moa Album</h1>
     <p class="lead text-muted">A collection of images of Moa. It currently
-contains about <%= pluralize(@images.total_count, 'image') %> of Moa.</p>
+contains about <strong><%= pluralize(@images.total_count, 'image') %></strong> of Moa.</p>
     <p>
       <a href="https://m.me/moabot" class="btn btn-secondary">Message Moa Bot on Facebook</a>
     </p>

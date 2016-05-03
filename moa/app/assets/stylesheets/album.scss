@@ -6,6 +6,7 @@
 .navbar-collapse .container-fluid {
   display: flex;
   justify-content: space-around;
+  padding: 1rem;
 }
 
 .navbar-collapse h4 {
@@ -16,8 +17,8 @@
   color: #818a91;
 }
 
-.about {
-  max-width: 30rem;
+.social {
+  min-width: 10rem;
 }
 
 .social a {
