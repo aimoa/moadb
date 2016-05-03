@@ -3,7 +3,11 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  resources :images
+  concern :paginatable do
+    get '(page/:page)', :action => :index, :on => :collection, :as => ''
+  end
+
+  resources :images, :concerns => :paginatable
 
   get '/privacy' => 'pages#privacy'
 

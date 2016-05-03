@@ -11,12 +11,14 @@ class Image < ActiveRecord::Base
   validates :ghash, presence: true,
                     uniqueness: true
 
+  paginates_per 28
+
   def next
-    self.class.where('spam = ? AND ghash > ?', false, ghash).first
+    self.class.where('spam = ? AND ghash > ?', false, ghash).first or self.class.where(:spam => false).first
   end
   
   def previous
-    self.class.where('spam = ? AND ghash < ?', false, ghash).last
+    self.class.where('spam = ? AND ghash < ?', false, ghash).last or self.class.where(:spam => false).last
   end
 end
 

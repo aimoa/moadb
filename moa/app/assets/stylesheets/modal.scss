@@ -7,6 +7,23 @@
   background-color: rgba(68,34,0,0.8);
 }
 
-.modal-body a > img {
-  width: 100%;
+.modal-body img {
+  max-width: 100%;
+  max-height: 40rem;
+}
+
+.modal-body a {
+  position: absolute;
+  top: 0;
+  height: 100%;
+}
+
+.modal-body .prev {
+  left: 0;
+  width: 40%;
+}
+
+.modal-body .next {
+  right: 0;
+  width: 60%;
 }

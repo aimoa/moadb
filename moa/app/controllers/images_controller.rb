@@ -1,7 +1,7 @@
 class ImagesController < ApplicationController
 
   def index
-    @images = Image.where(:spam => false).paginate(:page => params[:page], :per_page => 28).order(:ghash)
+    @images = Image.where(:spam => false).order(:ghash).page(params[:page])
   end
 
   def show

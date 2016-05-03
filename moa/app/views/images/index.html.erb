@@ -28,7 +28,7 @@ data-target="#navbar-header">
   <div class="container">
     <h1 class="jumbotron-heading">Moa Album</h1>
     <p class="lead text-muted">A collection of images of Moa. It currently
-contains about <%= pluralize(@images.count, 'image') %> of Moa.</p>
+contains about <%= pluralize(@images.total_count, 'image') %> of Moa.</p>
     <p>
       <a href="https://m.me/moabot" class="btn btn-secondary">Message Moa Bot on Facebook</a>
     </p>
@@ -36,24 +36,20 @@ contains about <%= pluralize(@images.count, 'image') %> of Moa.</p>
 </section>
 
 <div class="album text-muted">
-  <div class="container">
+  <div class="container" id="images">
 
-    <div class="row">
-      <% @images.each do |image| %>
-        <div class="card">
-          <%= link_to (image_tag image.url+":thumb", class: 'img-fluid center-block'), '#', data: {toggle: 'modal', target: '#moaModal', image: image} %>
-        </div>
-      <% end %>
+    <div class="page row">
+      <%= render @images %>
     </div>
 
-    <%= will_paginate @images %>
+    <%= paginate @images %>
 
   </div>
 </div>
 
 <%= render 'moaModal' %>
 
-<footer class="text-muted">
+<footer class="text-muted navbar-fixed-bottom">
   <div class="container">
     <p>
       <a href="#">Back to top</a>
