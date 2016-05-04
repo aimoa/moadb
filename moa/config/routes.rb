@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   resources :images, :concerns => :paginatable
 
+  get '/spam' => 'images#spam'
+
   get '/privacy' => 'pages#privacy'
 
   post '/webhook' => 'pages#webhook'

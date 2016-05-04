@@ -1,4 +1,7 @@
 class ImagesController < ApplicationController
+  def spam
+    @images = Image.where(:spam => true).order(:ghash).page(params[:page])
+  end
 
   def index
     @images = Image.where(:spam => false).order(:ghash).page(params[:page])
