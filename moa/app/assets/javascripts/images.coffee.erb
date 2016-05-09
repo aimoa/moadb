@@ -1,0 +1,29 @@
+# Place all the behaviors and hooks related to the matching controller here.
+# All this logic will automatically be available in application.js.
+# You can use CoffeeScript in this file: http://coffeescript.org/
+
+destroy = ->
+  $("a img").on "error", ->
+    $(this).attr("src", "<%= asset_path('koba.png') %>")
+    $.ajax
+      url: $(this).closest("a").attr("href")
+      method: "DELETE"
+
+pageScroll = ->
+  nextPage = $(".row nav.pagination a[rel=next]").attr("href")
+  if nextPage && $(window).scrollTop() > $(document).height() - $(window).height() - 40
+    $(".row nav.pagination").remove()
+    $.ajax
+      url: nextPage
+      method: "GET"
+      success: (data) ->
+        $("div.row").append(data)
+        destroy()
+  if !nextPage
+    $(".row nav.pagination").remove()
+
+$ ->
+  destroy()
+  pageScroll()
+  $(window).on "scroll", ->
+    pageScroll()

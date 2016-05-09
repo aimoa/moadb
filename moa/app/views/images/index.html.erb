@@ -29,7 +29,8 @@ data-target="#navbar-header">
   <div class="container">
     <h1 class="jumbotron-heading">Moa Album</h1>
     <p class="lead text-muted">A collection of images of Moa. It currently
-contains about <strong><%= pluralize(@images.total_count, 'image') %></strong> of Moa.</p>
+contains less than <strong><%= pluralize(@images.total_count+1, 'image') %>
+</strong> of Moa.</p>
     <p>
       <a href="https://m.me/moabot" class="btn btn-secondary">Message Moa Bot on Facebook</a>
     </p>
@@ -37,23 +38,16 @@ contains about <strong><%= pluralize(@images.total_count, 'image') %></strong> o
 </section>
 
 <div class="album text-muted">
-  <div class="container" id="images">
-
-    <div class="page row">
-      <%= render @images %>
-    </div>
+  <div class="container">
 
     <%= paginate @images %>
+
+    <div class="row">
+      <%= render @images %>
+      <%= paginate @images %>
+    </div>
 
   </div>
 </div>
 
 <%= render 'moaModal' %>
-
-<footer class="text-muted navbar-fixed-bottom">
-  <div class="container">
-    <p>
-      <a href="#">Back to top</a>
-    </p>
-  </div>
-</footer>

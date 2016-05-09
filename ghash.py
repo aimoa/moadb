@@ -1,3 +1,4 @@
+import sys
 import requests
 import math
 import cv2
@@ -25,4 +26,4 @@ def ghash(url):
     return '{:016x}'.format(int(code) & (2**64-1))
 
 if __name__ == "__main__":
-    print 'GHASH'
+    sys.stdout.write(ghash(sys.argv[1]))

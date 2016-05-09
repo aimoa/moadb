@@ -5,6 +5,9 @@ class ImagesController < ApplicationController
 
   def index
     @images = Image.where(:spam => false).order(:ghash).page(params[:page])
+    if request.xhr?
+      render :partial => 'imageScroll'
+    end
   end
 
   def show
@@ -31,7 +34,7 @@ class ImagesController < ApplicationController
 
   def destroy
     @image = Image.find(params[:id])
-    @image.update(:spam => true)
+    @image.destroy
 
     redirect_to images_path
   end

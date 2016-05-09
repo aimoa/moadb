@@ -1,6 +1,6 @@
 import requests
 import json
-from tweepy.streaming import StreamListener
+from tweepy import StreamListener
 from tweepy import OAuthHandler
 from tweepy import Stream
 
@@ -31,11 +31,6 @@ class MoaListener(StreamListener):
 
     def on_error(self, status):
         print status
-
-def save_img(pk,url):
-    f = open('{:09d}.jpg'.format(pk),"wb")
-    f.write(requests.get(url).content)
-    f.close()
 
 if __name__ == '__main__':
     listener = MoaListener()
