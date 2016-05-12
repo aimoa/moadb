@@ -24,7 +24,7 @@ class PagesController < ApplicationController
             sendTextMessage(sender, root_url)
           end
         elsif message['sticker_id']
-          image = Image.order(:created_at).last
+          image = Image.where(:spam => false).order(:created_at).last
           sendPersonalMessage(sender, 'here is the image most recently added to my database.')
           sendImageMessage(sender, image.url)
           sendTextMessage(sender, image_url(image))

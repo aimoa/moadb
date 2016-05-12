@@ -11,7 +11,7 @@ destroy = ->
 
 pageScroll = ->
   nextPage = $(".row nav.pagination a[rel=next]").attr("href")
-  if nextPage && $(window).scrollTop() > $(document).height() - $(window).height() - 40
+  if nextPage && $(window).scrollTop() > $(document).height() - $(window).height() - 400
     $(".row nav.pagination").remove()
     $.ajax
       url: nextPage
