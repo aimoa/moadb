@@ -43,8 +43,7 @@ contains less than <strong><%= pluralize(@images.total_count+1, 'image') %>
     <%= paginate @images %>
 
     <div class="row">
-      <%= render @images %>
-      <%= paginate @images %>
+      <%= render 'imageScroll' %>
     </div>
 
   </div>

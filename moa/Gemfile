@@ -4,9 +4,6 @@ gem 'thin'
 
 gem 'rest-client'
 
-gem 'elasticsearch-model'
-gem 'elasticsearch-rails'
-
 gem 'bootstrap', '~> 4.0.0.alpha3'
 
 source 'https://rails-assets.org' do
@@ -16,6 +13,8 @@ end
 gem 'kaminari'
 
 gem 'jquery-turbolinks'
+
+gem 'react-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'

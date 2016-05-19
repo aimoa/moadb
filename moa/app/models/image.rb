@@ -1,9 +1,4 @@
-require 'elasticsearch/model'
-
 class Image < ActiveRecord::Base
-#  include Elasticsearch::Model
-#  include Elasticsearch::Model::Callbacks
-
   self.primary_key = "ghash"
 
   validates :url, presence: true
@@ -21,5 +16,3 @@ class Image < ActiveRecord::Base
     self.class.where('spam = ? AND ghash < ?', false, ghash).last or self.class.where(:spam => false).last
   end
 end
-
-#Image.import
